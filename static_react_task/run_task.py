@@ -28,6 +28,7 @@ defaults = [
     {"mephisto/blueprint": BLUEPRINT_TYPE},
     {"mephisto/architect": "local"},
     {"mephisto/provider": "mock"},
+    {"mephisto/architect/port: 8000"}, # 3000 port is occupied in davinci
     {"conf": "example"},
 ]
 
