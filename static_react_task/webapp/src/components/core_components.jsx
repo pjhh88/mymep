@@ -6,7 +6,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 function OnboardingComponent({ onSubmit }) {
   return (
@@ -49,15 +49,33 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
   if (isOnboarding) {
     return <OnboardingComponent onSubmit={onSubmit} />;
   }
+
+  const listText = taskData.text.map((utt, i) => (
+    <div className="column">
+      <div className="box has-background-primary" style={{ marginLeft: "0", marginRight: "0", float: (i % 2 === 0 ? "left" : "right")}}>
+        <p className="content">{utt}</p>
+      </div>
+    </div>
+    )
+  );
+
+  // if (loading) return <div>Loading...</div>
   return (
     <div>
       <Directions>
-        Directions: Please rate the below sentence as good or bad.
+        Directions: Please write contradict sentence on dialog.
       </Directions>
       <section className="section">
         <div className="container">
-          <p className="subtitle is-5"></p>
-          <p className="title is-3 is-spaced">{taskData.text}</p>
+                  <div className="columns is-flex-direction-column">
+          <div className="column">
+            <div className="columns is-flex-direction-column">
+            {listText}
+          </div>
+          </div>
+          <div className="column">
+            <p className="subtitle is-5"></p>
+          <p className="title is-3 is-spaced">Write your contradiction utterance</p>
           <div className="field is-grouped">
             <div className="control">
               <button
@@ -76,7 +94,16 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
               </button>
             </div>
           </div>
+          </div>
         </div>
+        </div>
+
+        {/*<div className="container">*/}
+        {/*  */}
+        {/*</div>*/}
+        {/*<div className="container">*/}
+        {/*  */}
+        {/*</div>*/}
       </section>
     </div>
   );

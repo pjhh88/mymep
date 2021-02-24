@@ -28,8 +28,7 @@ defaults = [
     {"mephisto/blueprint": BLUEPRINT_TYPE},
     {"mephisto/architect": "local"},
     {"mephisto/provider": "mock"},
-    {"mephisto/architect/port: 8000"}, # 3000 port is occupied in davinci
-    {"conf": "example"},
+    {"conf": "want_to_know_you"},
 ]
 
 from mephisto.operations.hydra_config import RunScriptConfig, register_script_config
@@ -81,8 +80,8 @@ def main(cfg: DictConfig) -> None:
 
     shared_state = SharedStaticTaskState(
         static_task_data=[
-            {"text": "This text is good text!"},
-            {"text": "This text is bad text!"},
+            {"text": ["Hello World!",
+                      "Bye World!"]},
         ],
         validate_onboarding=onboarding_always_valid,
     )

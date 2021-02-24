@@ -1,0 +1,14 @@
+#@package _global_
+mephisto:
+  blueprint:
+    task_source: ${task_dir}/webapp/build/bundle.js
+    extra_source_dir: ${task_dir}/webapp/src/static
+    units_per_assignment: 1
+  architect:
+    port: '8123'
+  task:
+    task_name: want_to_know_you
+    task_title: "Make contradiction sentence on dialog"
+    task_description: "In this task, you'll be given a dialog. It is your job to write sentence that contradict to dialog"
+    task_reward: 1.00 # maybe changed
+    task_tags: "dialog, sentence, contradict"
