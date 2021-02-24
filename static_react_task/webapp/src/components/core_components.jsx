@@ -65,37 +65,25 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
       <Directions>
         Directions: Please write contradict sentence on dialog.
       </Directions>
-      <section className="section">
+      <section id="dialog_section" className="section">
         <div className="container">
-                  <div className="columns is-flex-direction-column">
-          <div className="column">
-            <div className="columns is-flex-direction-column">
-            {listText}
-          </div>
-          </div>
-          <div className="column">
-            <p className="subtitle is-5"></p>
-          <p className="title is-3 is-spaced">Write your contradiction utterance</p>
-          <div className="field is-grouped">
-            <div className="control">
-              <button
-                className="button is-success is-large"
-                onClick={() => onSubmit({ rating: "good" })}
-              >
-                Mark as Good
-              </button>
+          <div className="columns is-flex-direction-column">
+            <div id="dialog" className="column">
+              <div className="columns is-flex-direction-column">
+                {listText}
+              </div>
             </div>
-            <div className="control">
-              <button
-                className="button is-danger is-large"
-                onClick={() => onSubmit({ rating: "bad" })}
-              >
-                Mark as Bad
-              </button>
+            <div id="user utterance" className="column">
+            {/*<p className="subtitle is-5"></p>*/}
+            {/*<p className="title is-3 is-spaced"></p>*/}
+              <div className="field">
+                <label className="label">Please type your contradict utterance</label>
+                <div className="control">
+                  <input className="input" type="text" placeholder="contradict sentence"/>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-        </div>
         </div>
       </section>
     </div>
