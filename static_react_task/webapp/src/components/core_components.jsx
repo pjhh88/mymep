@@ -97,13 +97,6 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
           </div>
         </div>
         </div>
-
-        {/*<div className="container">*/}
-        {/*  */}
-        {/*</div>*/}
-        {/*<div className="container">*/}
-        {/*  */}
-        {/*</div>*/}
       </section>
     </div>
   );
