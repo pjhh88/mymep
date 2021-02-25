@@ -50,13 +50,31 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
     return <OnboardingComponent onSubmit={onSubmit} />;
   }
 
-  const listText = taskData.text.map((utt, i) => (
-    <div className="column">
-      <div className="box has-background-primary" style={{ marginLeft: "0", marginRight: "0", float: (i % 2 === 0 ? "left" : "right")}}>
-        <p className="content">{utt}</p>
-      </div>
-    </div>
-    )
+  const poster_background = ' ' + 'has-background-danger-light';
+  const commenter_background = ' ' + 'has-background-info-light';
+
+  const listText = taskData.message.map((utt, i) => {
+    if (i % 2 == 1) {
+      return (
+          <div className="column">
+            <div className={"box" + poster_background}
+                 style={{marginLeft: "0", marginRight: "0", float: 'left'}}>
+              <p className="content">{utt.utterance}</p>
+            </div>
+          </div>
+      )
+    }
+    else {
+      return (
+          <div className="column">
+            <div className={"box" + commenter_background}
+                 style={{marginLeft: "0", marginRight: "0", float: 'right'}}>
+              <p className="content">{utt.utterance}</p>
+            </div>
+          </div>
+      )
+    }
+    }
   );
 
   // if (loading) return <div>Loading...</div>
@@ -68,8 +86,40 @@ function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
       <section id="dialog_section" className="section">
         <div className="container">
           <div className="columns is-flex-direction-column">
+            <div className='column'>
+              <div className="icon-text">
+                <span className="icon has-text-info">
+                  <i className="fas fa-info-circle"></i>
+                </span>
+                <span>Information</span>
+              </div>
+
+              <div className="field is-grouped is-grouped-multiline">
+                <div className="control">
+                  <div className="tags has-addons">
+                    <span className="tag is-dark">poster</span>
+                    <span className="tag is-danger" style={{width: '50px'}}> </span>
+                  </div>
+                </div>
+
+                <div className="control">
+                  <div className="tags has-addons">
+                    <span className="tag is-dark">commenter</span>
+                    <span className="tag is-info"style={{width: '50px'}}> </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
             <div id="dialog" className="column">
               <div className="columns is-flex-direction-column">
+                <div id='persona' className="column">
+                  <div className={'box' + poster_background}
+                       style={{marginLeft: "0", marginRight: "0", float: 'left'}}>
+                    <p className="content">{taskData.persona}</p>
+                  </div>
+                </div>
+
                 {listText}
               </div>
             </div>
