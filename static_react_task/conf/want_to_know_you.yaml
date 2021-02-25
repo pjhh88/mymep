@@ -4,6 +4,7 @@ mephisto:
     task_source: ${task_dir}/webapp/build/bundle.js
     extra_source_dir: ${task_dir}/webapp/src/static
     units_per_assignment: 1
+    data_json: ${task_dir}/data.json
   architect:
     port: '8123'
   task:
