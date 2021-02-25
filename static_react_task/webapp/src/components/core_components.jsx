@@ -32,7 +32,7 @@ function LoadingScreen() {
 
 function Directions({ children }) {
   return (
-    <section className="hero is-light">
+    <section className="hero is-info welcome">
       <div className="hero-body">
         <div className="container">
           <p className="subtitle is-5">{children}</p>
